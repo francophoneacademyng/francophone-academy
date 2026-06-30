@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page introuvable - Francophone Academy">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Page introuvable — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .error-container {
+      text-align: center;
+      max-width: 480px;
+    }
+
+    .error-code {
+      font-size: 8rem;
+      font-weight: 700;
+      line-height: 1;
+      color: #e2e8f0;
+      letter-spacing: -0.04em;
+      user-select: none;
+    }
+
+    .error-icon {
+      font-size: 4rem;
+      margin: 1rem 0;
+      display: block;
+    }
+
+    .error-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 0.75rem;
+    }
+
+    .error-message {
+      font-size: 1rem;
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .error-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      font-family: inherit;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn--primary {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .btn--primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn--secondary {
+      background: #fff;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+
+    .btn--secondary:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .error-footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .error-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .error-brand:hover {
+      color: #64748b;
+    }
+
+    @media (max-width: 480px) {
+      .error-code {
+        font-size: 6rem;
+      }
+
+      .error-title {
+        font-size: 1.25rem;
+      }
+
+      .error-message {
+        font-size: 0.875rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="error-container" role="main">
+    <div class="error-code" aria-hidden="true">404</div>
+    <span class="error-icon" aria-hidden="true">&#128218;</span>
+    <h1 class="error-title">Page introuvable</h1>
+    <p class="error-message">
+      La page que vous recherchez n'existe pas ou a ete deplacee.
+      Verifiez l'URL ou retournez a l'accueil.
+    </p>
+    <div class="error-actions">
+      <a href="/pages/dashboard/dashboard.html" class="btn btn--primary">
+        <span aria-hidden="true">&#8592;</span> Retour au tableau de bord
+      </a>
+      <a href="/pages/courses/courses.html" class="btn btn--secondary">
+        Explorer les cours
+      </a>
+    </div>
+    <footer class="error-footer">
+      <a href="/pages/login/login.html" class="error-brand">
+        <span aria-hidden="true">&#127466;&#127482;</span>
+        Francophone Academy
+      </a>
+    </footer>
+  </main>
+
+</body>
+</html>

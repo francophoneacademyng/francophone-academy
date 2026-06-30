@@ -1,0 +1,194 @@
+/**
+ * register.css — Styles specifiques a la page Register
+ * Importe ui-components.css (pas de duplication)
+ */
+
+/* Reutilise le layout auth de login */
+@import url('../login/login.css');
+
+/* ========== SPECIFIQUE REGISTER ========== */
+
+/* Le formulaire d'inscription est plus long — scrollable */
+.auth-form-panel {
+  overflow-y: auto;
+  max-height: 100vh;
+}
+.auth-form-panel::-webkit-scrollbar {
+  width: 6px;
+}
+.auth-form-panel::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-full);
+}
+
+/* Section fieldset pour le formulaire */
+.form-section {
+  border: none;
+  padding: 0;
+  margin-bottom: var(--space-4);
+}
+.form-section__title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Step indicator pour le multi-etapes */
+.steps-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+.step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.step--active {
+  color: var(--primary);
+  font-weight: 600;
+}
+.step--completed {
+  color: var(--success);
+}
+.step__number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.step--active .step__number {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+.step--completed .step__number {
+  background: var(--success);
+  color: white;
+  border-color: var(--success);
+}
+.step__label {
+  display: none;
+}
+@media (min-width: 480px) {
+  .step__label {
+    display: inline;
+  }
+}
+
+/* Password requirements checklist */
+.password-requirements {
+  list-style: none;
+  margin: var(--space-2) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.password-requirement {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+.password-requirement--met {
+  color: var(--success);
+}
+.password-requirement__icon {
+  width: 14px;
+  text-align: center;
+}
+
+/* CECRL level selector */
+.level-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+.level-option {
+  position: relative;
+}
+.level-option input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.level-option label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-3) var(--space-2);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+  font-size: 0.8125rem;
+}
+.level-option label:hover {
+  border-color: var(--primary-light);
+}
+.level-option input:checked + label,
+.level-option input:focus + label {
+  border-color: var(--primary);
+  background: var(--primary-50);
+}
+.level-option__code {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+.level-option__name {
+  font-size: 0.6875rem;
+  color: var(--text-secondary);
+}
+
+/* Terms checkbox */
+.terms-box {
+  background: var(--bg-hover);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin: var(--space-3) 0;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+.terms-box a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .level-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: var(--space-4);
+  }
+  .level-selector {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .level-option label {
+    padding: var(--space-2) var(--space-1);
+  }
+  .level-option__name {
+    display: none;
+  }
+}

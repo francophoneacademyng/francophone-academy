@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tutor — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <link rel="stylesheet" href="tutor.css">
+</head>
+<body>
+  <div class="tutor-layout">
+    <!-- Sidebar conversations -->
+    <aside class="tutor-sidebar" id="tutor-sidebar" role="complementary" aria-label="Historique des conversations">
+      <div class="tutor-sidebar__header">
+        <a href="../dashboard/dashboard.html" class="btn btn--text btn--small">&larr; Dashboard</a>
+        <button class="btn btn--primary btn--small btn--block" id="btn-new-session" style="margin-top:var(--space-2)">+ Nouvelle conversation</button>
+      </div>
+      <div class="tutor-sidebar__sessions" id="sessions-list">
+        <!-- Rempli par JS -->
+      </div>
+      <div class="tutor-sidebar__footer">
+        <div class="tutor-context" id="tutor-context">
+          <p class="tutor-context__label">Contexte</p>
+          <p class="tutor-context__value" id="context-lesson">Aucune lecon</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Zone de chat -->
+    <main class="tutor-chat-area" role="main">
+      <!-- Header -->
+      <header class="tutor-chat-header">
+        <button class="btn btn--icon" id="btn-toggle-sidebar" aria-label="Afficher/masquer l'historique">&#9776;</button>
+        <div class="tutor-chat-header__info">
+          <h1 class="tutor-chat-header__title">&#129302; AI Tutor</h1>
+          <span class="tutor-chat-header__badge" id="cefr-badge">Niveau A1</span>
+        </div>
+        <button class="btn btn--icon" id="btn-help-tutor" title="Aide" aria-label="Aide">&#63;</button>
+      </header>
+
+      <!-- Messages -->
+      <div class="tutor-messages" id="tutor-messages" role="log" aria-live="polite" aria-label="Messages du tuteur">
+        <div class="loading-state"><div class="loading-spinner"></div><p>Connexion au tuteur IA...</p></div>
+      </div>
+
+      <!-- Typing indicator -->
+      <div class="typing-indicator" id="typing-indicator" hidden>
+        <div class="typing-indicator__avatar">&#129302;</div>
+        <div class="typing-indicator__dots"><span></span><span></span><span></span></div>
+      </div>
+
+      <!-- Suggestions rapides -->
+      <div class="tutor-suggestions" id="tutor-suggestions">
+        <button class="suggestion-chip" data-action="lesson-help">&#128218; Aide sur la lecon</button>
+        <button class="suggestion-chip" data-action="exercise">&#9997; Exercice</button>
+        <button class="suggestion-chip" data-action="quiz">&#10067; Mini Quiz</button>
+        <button class="suggestion-chip" data-action="grammar">&#128215; Grammaire</button>
+        <button class="suggestion-chip" data-action="vocabulary">&#128218; Vocabulaire</button>
+        <button class="suggestion-chip" data-action="correction">&#9986; Correction</button>
+      </div>
+
+      <!-- Input -->
+      <div class="tutor-input-area">
+        <div class="tutor-input-wrapper">
+          <textarea class="tutor-input" id="tutor-input" placeholder="Posez votre question en francais..." rows="1" aria-label="Message au tuteur"></textarea>
+          <button class="btn btn--primary tutor-input__send" id="btn-send" aria-label="Envoyer">&#10148;</button>
+        </div>
+        <p class="tutor-input-hint">Appuyez sur Entree pour envoyer, Maj+Entree pour un saut de ligne</p>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="tutor.js"></script>
+</body>
+</html>

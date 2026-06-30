@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Inscription a Francophone Academy - Apprenez le francais avec l'IA">
+  <title>Inscription — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+  <main class="auth-page" role="main">
+    <div class="auth-layout">
+
+      <!-- Panel gauche: branding -->
+      <section class="auth-branding" aria-label="Presentation">
+        <div class="auth-branding__content">
+          <div class="auth-logo">
+            <span class="auth-logo__icon" aria-hidden="true">&#127466;&#127482;</span>
+            <h1 class="auth-logo__title">Francophone Academy</h1>
+          </div>
+          <p class="auth-branding__tagline">Rejoignez des milliers d'apprenants et progressez en francais.</p>
+          <ul class="auth-features">
+            <li class="auth-feature"><span aria-hidden="true">&#127942;</span> Certificats reconnus CECRL</li>
+            <li class="auth-feature"><span aria-hidden="true">&#127775;</span> Parcours personnalise</li>
+            <li class="auth-feature"><span aria-hidden="true">&#128218;</span> +500 lecons interactives</li>
+            <li class="auth-feature"><span aria-hidden="true">&#127757;</span> Communaute mondiale</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Panel droit: formulaire -->
+      <section class="auth-form-panel" aria-label="Formulaire d'inscription">
+        <div id="auth-container" class="auth-container"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script type="module" src="register.js"></script>
+</body>
+</html>

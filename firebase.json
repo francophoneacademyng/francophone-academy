@@ -1,0 +1,170 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default"
+    }
+  ],
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "firestore.rules",
+      "firestore.indexes.json",
+      "functions/**",
+      "tests/**",
+      "**/.env",
+      "**/.env.*",
+      "**/.git/**",
+      "**/.gitignore",
+      "**/node_modules/**",
+      "**/.vscode/**",
+      "**/*.md",
+      "**/sprints/*.md",
+      "**/REPORT.md"
+    ],
+    "headers": [
+      {
+        "source": "**/*.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "**/*.css",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|ico|woff|woff2|ttf|eot)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "/pages/**/*.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          {
+            "key": "X-XSS-Protection",
+            "value": "1; mode=block"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "key": "Permissions-Policy",
+            "value": "camera=(), microphone=(), geolocation=(), payment=(self), accelerometer=()"
+          },
+          {
+            "key": "Strict-Transport-Security",
+            "value": "max-age=63072000; includeSubDomains; preload"
+          },
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com https://js.paystack.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.firebaseapp.com; connect-src 'self' https://*.googleapis.com https://*.gstatic.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://*.cloudfunctions.net https://api.paystack.co; frame-src https://js.paystack.co; object-src 'none'; base-uri 'self';"
+          }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/login",
+        "destination": "/pages/login/login.html"
+      },
+      {
+        "source": "/register",
+        "destination": "/pages/register/register.html"
+      },
+      {
+        "source": "/dashboard",
+        "destination": "/pages/dashboard/dashboard.html"
+      },
+      {
+        "source": "/courses",
+        "destination": "/pages/courses/courses.html"
+      },
+      {
+        "source": "/lesson/**",
+        "destination": "/pages/lesson/lesson.html"
+      },
+      {
+        "source": "/teacher",
+        "destination": "/pages/teacher/teacher.html"
+      },
+      {
+        "source": "/tutor",
+        "destination": "/pages/tutor/tutor.html"
+      },
+      {
+        "source": "/quiz/**",
+        "destination": "/pages/quiz/quiz.html"
+      },
+      {
+        "source": "/pricing",
+        "destination": "/pages/pricing/pricing.html"
+      },
+      {
+        "source": "/certificates",
+        "destination": "/pages/certificate/certificate.html"
+      },
+      {
+        "source": "/verify-certificate/**",
+        "destination": "/pages/verify-certificate/verify-certificate.html"
+      },
+      {
+        "source": "/payment/success",
+        "destination": "/pages/payment/payment-success.html"
+      },
+      {
+        "source": "/payment/failed",
+        "destination": "/pages/payment/payment-failed.html"
+      },
+      {
+        "source": "/sitemap.xml",
+        "destination": "/sitemap.xml"
+      },
+      {
+        "source": "/robots.txt",
+        "destination": "/robots.txt"
+      },
+      {
+        "source": "/manifest.json",
+        "destination": "/manifest.json"
+      }
+    ],
+    "cleanUrls": false,
+    "trailingSlash": false
+  }
+}

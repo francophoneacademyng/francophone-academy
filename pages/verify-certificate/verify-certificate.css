@@ -1,0 +1,25 @@
+/* verify-certificate.css — Page de verification publique */
+.verify-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f0f4ff 0%, #fafbfc 50%, #f0fdf4 100%); padding: var(--space-4); }
+.verify-card { background: white; border-radius: var(--radius-xl); padding: var(--space-10); max-width: 520px; width: 100%; box-shadow: var(--shadow-xl); text-align: center; }
+.verify-card__logo { font-size: 2.5rem; margin-bottom: var(--space-3); }
+.verify-card__title { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-2); }
+.verify-card__subtitle { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: var(--space-6); }
+
+.verify-form { display: flex; gap: var(--space-2); margin-bottom: var(--space-4); }
+.verify-form input { flex: 1; font-size: 1rem; padding: var(--space-3) var(--space-4); }
+
+.verify-result { margin-top: var(--space-4); }
+.verify-result--valid { border: 2px solid var(--success); border-radius: var(--radius-lg); padding: var(--space-5); background: var(--success-bg); }
+.verify-result--invalid { border: 2px solid var(--error); border-radius: var(--radius-lg); padding: var(--space-5); background: var(--error-bg); }
+.verify-result__icon { font-size: 2.5rem; margin-bottom: var(--space-3); }
+.verify-result__title { font-size: 1.125rem; font-weight: 700; margin-bottom: var(--space-3); }
+.verify-result__details { text-align: left; margin-top: var(--space-4); }
+.verify-detail { display: flex; justify-content: space-between; padding: var(--space-2) 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.verify-detail:last-child { border-bottom: none; }
+.verify-detail__label { font-size: 0.8125rem; color: var(--text-secondary); }
+.verify-detail__value { font-size: 0.875rem; font-weight: 600; color: var(--text-primary); }
+
+@media (max-width: 768px) {
+  .verify-card { padding: var(--space-6); }
+  .verify-form { flex-direction: column; }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecon — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <link rel="stylesheet" href="lesson.css">
+</head>
+<body>
+  <div class="lesson-layout">
+    <!-- Sidebar : sommaire du cours -->
+    <aside class="lesson-sidebar" id="lesson-sidebar" role="navigation" aria-label="Sommaire du cours">
+      <div class="lesson-sidebar__header">
+        <div style="display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap">
+          <a href="../courses/courses.html" class="btn btn--text btn--small">&larr; Catalogue</a>
+          <a href="../quiz/quiz.html" class="btn btn--text btn--small">&#10067; Quiz</a>
+        </div>
+        <h2 class="lesson-sidebar__title" id="course-title">Cours</h2>
+        <div class="lesson-progress">
+          <div class="progress-bar">
+            <div class="progress-bar__fill" id="course-progress-bar" style="width:0%"></div>
+          </div>
+          <span class="lesson-progress__text" id="course-progress-text">0%</span>
+        </div>
+      </div>
+      <div class="lesson-sidebar__modules" id="modules-list">
+        <!-- Rempli par JS -->
+      </div>
+    </aside>
+
+    <!-- Zone de lecon -->
+    <main class="lesson-main" role="main">
+      <!-- Barre d'outils -->
+      <header class="lesson-toolbar">
+        <button class="btn btn--icon" id="btn-toggle-sidebar" aria-label="Afficher/masquer le sommaire">&#9776;</button>
+        <h1 class="lesson-toolbar__title" id="lesson-title">Lecon</h1>
+        <div class="lesson-toolbar__actions">
+          <button class="btn btn--tutor btn--small" id="btn-tutor" title="Ouvrir l'IA Tutor">&#129302; AI Tutor</button>
+          <button class="btn btn--outline btn--small" id="btn-prev" disabled>&larr; Precedent</button>
+          <button class="btn btn--primary btn--small" id="btn-complete">&#10003; Marquer comme termine</button>
+          <button class="btn btn--outline btn--small" id="btn-next">Suivant &rarr;</button>
+        </div>
+      </header>
+
+      <!-- Contenu de la lecon -->
+      <article class="lesson-content" id="lesson-content" aria-label="Contenu de la lecon">
+        <div class="loading-state"><div class="loading-spinner"></div><p>Chargement de la lecon...</p></div>
+      </article>
+
+      <!-- Navigation bas de page -->
+      <footer class="lesson-footer-nav">
+        <button class="btn btn--outline" id="btn-prev-footer" disabled>&larr; Precedent</button>
+        <button class="btn btn--primary" id="btn-complete-footer">&#10003; Marquer comme termine</button>
+        <button class="btn btn--outline" id="btn-next-footer">Suivant &rarr;</button>
+      </footer>
+    </main>
+  </div>
+
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="lesson.js"></script>
+</body>
+</html>

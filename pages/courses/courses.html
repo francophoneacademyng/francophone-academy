@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue de cours — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <link rel="stylesheet" href="../dashboard/dashboard.css">
+  <link rel="stylesheet" href="courses.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Navigation">
+      <div class="sidebar__header">
+        <a href="../dashboard/dashboard.html" class="sidebar__logo">
+          <span aria-hidden="true">&#127466;&#127482;</span>
+          <span class="sidebar__logo-text">Francophone Academy</span>
+        </a>
+      </div>
+      <nav class="sidebar__nav">
+        <ul class="sidebar__menu" role="list">
+          <li><a href="../dashboard/dashboard.html" class="sidebar__link"><span aria-hidden="true">&#128202;</span> <span class="sidebar__label">Tableau de bord</span></a></li>
+          <li><a href="courses.html" class="sidebar__link sidebar__link--active" aria-current="page"><span aria-hidden="true">&#128218;</span> <span class="sidebar__label">Cours</span></a></li>
+          <li><a href="../certificate/certificate.html" class="sidebar__link"><span aria-hidden="true">&#127942;</span> <span class="sidebar__label">Certificats</span></a></li>
+          <li><a href="../quiz/quiz.html" class="sidebar__link"><span aria-hidden="true">&#10067;</span> <span class="sidebar__label">Quiz</span></a></li>
+          <li><a href="../pricing/pricing.html" class="sidebar__link"><span aria-hidden="true">&#128176;</span> <span class="sidebar__label">Tarifs</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <button class="sidebar__link sidebar__link--logout" id="btn-logout"><span aria-hidden="true">&#128682;</span> <span class="sidebar__label">Deconnexion</span></button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+    <main class="dashboard-main" role="main">
+      <header class="topbar">
+        <div class="topbar__left">
+          <button class="btn btn--icon topbar__menu-btn" id="mobile-menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+          <h1 class="page-title">Catalogue de cours</h1>
+        </div>
+        <div class="topbar__right">
+          <span class="user-menu__name" id="user-name">Utilisateur</span>
+        </div>
+      </header>
+
+      <div class="dashboard-container">
+        <!-- Filtres -->
+        <div class="catalog-filters">
+          <div class="filter-group">
+            <label class="filter-label">Categorie</label>
+            <div class="filter-buttons" id="category-filters">
+              <button class="btn btn--small btn--primary" data-filter="all">Tous</button>
+              <button class="btn btn--small btn--outline" data-filter="general">General</button>
+              <button class="btn btn--small btn--outline" data-filter="professional">Pro</button>
+              <button class="btn btn--small btn--outline" data-filter="delf">DELF</button>
+              <button class="btn btn--small btn--outline" data-filter="dalf">DALF</button>
+              <button class="btn btn--small btn--outline" data-filter="tcf">TCF</button>
+              <button class="btn btn--small btn--outline" data-filter="tef">TEF</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Niveau</label>
+            <div class="filter-buttons" id="level-filters">
+              <button class="btn btn--small btn--primary" data-level="all">Tous</button>
+              <button class="btn btn--small btn--outline" data-level="A1">A1</button>
+              <button class="btn btn--small btn--outline" data-level="A2">A2</button>
+              <button class="btn btn--small btn--outline" data-level="B1">B1</button>
+              <button class="btn btn--small btn--outline" data-level="B2">B2</button>
+              <button class="btn btn--small btn--outline" data-level="C1">C1</button>
+              <button class="btn btn--small btn--outline" data-level="C2">C2</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grille de cours -->
+        <div id="courses-grid" class="courses-grid">
+          <div class="loading-state"><div class="loading-spinner"></div><p>Chargement des cours...</p></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="courses.js"></script>
+</body>
+</html>

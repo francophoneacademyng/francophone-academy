@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /pages/payment/
+Disallow: /pages/teacher/
+
+Sitemap: https://francophone-academy.web.app/sitemap.xml

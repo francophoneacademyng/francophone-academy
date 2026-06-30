@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace Enseignant — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <link rel="stylesheet" href="../dashboard/dashboard.css">
+  <link rel="stylesheet" href="teacher.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Navigation">
+      <div class="sidebar__header">
+        <a href="../dashboard/dashboard.html" class="sidebar__logo">
+          <span aria-hidden="true">&#127466;&#127482;</span>
+          <span class="sidebar__logo-text">Francophone Academy</span>
+        </a>
+      </div>
+      <nav class="sidebar__nav">
+        <ul class="sidebar__menu" role="list">
+          <li><a href="../dashboard/dashboard.html" class="sidebar__link"><span aria-hidden="true">&#128202;</span> <span class="sidebar__label">Tableau de bord</span></a></li>
+          <li><a href="teacher.html" class="sidebar__link sidebar__link--active" aria-current="page"><span aria-hidden="true">&#128221;</span> <span class="sidebar__label">Espace Enseignant</span></a></li>
+          <li><a href="../quiz/quiz.html" class="sidebar__link"><span aria-hidden="true">&#10067;</span> <span class="sidebar__label">Quiz & Evals</span></a></li>
+          <li><a href="../courses/courses.html" class="sidebar__link"><span aria-hidden="true">&#128218;</span> <span class="sidebar__label">Cours</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <button class="sidebar__link sidebar__link--logout" id="btn-logout"><span aria-hidden="true">&#128682;</span> <span class="sidebar__label">Deconnexion</span></button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+    <main class="dashboard-main" role="main">
+      <header class="topbar">
+        <div class="topbar__left">
+          <button class="btn btn--icon topbar__menu-btn" id="mobile-menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+          <h1 class="page-title">Espace Enseignant</h1>
+        </div>
+        <div class="topbar__right">
+          <span class="user-menu__name" id="user-name">Enseignant</span>
+        </div>
+      </header>
+
+      <div class="dashboard-container">
+        <!-- Stats rapides -->
+        <div class="teacher-stats">
+          <div class="teacher-stat-card"><span class="teacher-stat__value" id="stat-courses">0</span><span class="teacher-stat__label">Mes cours</span></div>
+          <div class="teacher-stat-card"><span class="teacher-stat__value" id="stat-quizzes">0</span><span class="teacher-stat__label">Quiz</span></div>
+          <div class="teacher-stat-card"><span class="teacher-stat__value" id="stat-questions">0</span><span class="teacher-stat__label">Questions</span></div>
+          <div class="teacher-stat-card"><span class="teacher-stat__value" id="stat-published">0</span><span class="teacher-stat__label">Publies</span></div>
+        </div>
+
+        <!-- Formulaire creation -->
+        <section class="teacher-section">
+          <h2 class="teacher-section__title">&#10133; Creer un cours</h2>
+          <form class="teacher-form" id="create-course-form">
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Titre</label><input type="text" class="form-input" name="title" required placeholder="Titre du cours"></div>
+              <div class="form-group"><label class="form-label">Categorie</label>
+                <select class="form-select" name="category" required>
+                  <option value="general">Francais General</option>
+                  <option value="professional">Francais Professionnel</option>
+                  <option value="delf">Preparation DELF</option>
+                  <option value="dalf">Preparation DALF</option>
+                  <option value="tcf">Preparation TCF</option>
+                  <option value="tef">Preparation TEF</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Niveau CECRL</label>
+                <select class="form-select" name="level" required>
+                  <option value="A1">A1 - Debutant</option><option value="A2">A2 - Elementaire</option>
+                  <option value="B1">B1 - Intermediaire</option><option value="B2">B2 - Avance</option>
+                  <option value="C1">C1 - Autonome</option><option value="C2">C2 - Maitrise</option>
+                </select>
+              </div>
+              <div class="form-group"><label class="form-label">Duree (minutes)</label><input type="number" class="form-input" name="duration" value="1200" min="30"></div>
+            </div>
+            <div class="form-group"><label class="form-label">Description courte</label><input type="text" class="form-input" name="shortDescription" placeholder="Resume en une phrase"></div>
+            <div class="form-group"><label class="form-label">Description complete</label><textarea class="form-textarea" name="description" rows="3" placeholder="Description detaillee du cours"></textarea></div>
+            <div class="form-group"><label class="form-label">Prix (XOF, 0 = gratuit)</label><input type="number" class="form-input" name="price" value="0" min="0"></div>
+            <div class="form-group"><label class="form-label">Objectifs (un par ligne)</label><textarea class="form-textarea" name="objectives" rows="3" placeholder="Objectif 1&#10;Objectif 2&#10;Objectif 3"></textarea></div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn--primary" id="btn-create-course">&#128221; Creer le cours</button>
+              <button type="reset" class="btn btn--outline">Annuler</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Creation Quiz -->
+        <section class="teacher-section">
+          <h2 class="teacher-section__title">&#10067; Creer un quiz</h2>
+          <form class="teacher-form" id="create-quiz-form">
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Titre</label><input type="text" class="form-input" name="title" required placeholder="Titre du quiz"></div>
+              <div class="form-group"><label class="form-label">Niveau CECRL</label>
+                <select class="form-select" name="level" required>
+                  <option value="A1">A1</option><option value="A2">A2</option>
+                  <option value="B1">B1</option><option value="B2">B2</option>
+                  <option value="C1">C1</option><option value="C2">C2</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Categorie</label>
+                <select class="form-select" name="category">
+                  <option value="general">General</option>
+                  <option value="grammar">Grammaire</option>
+                  <option value="vocabulary">Vocabulaire</option>
+                  <option value="comprehension">Comprehension</option>
+                </select>
+              </div>
+              <div class="form-group"><label class="form-label">Duree (min)</label><input type="number" class="form-input" name="duration" value="15" min="5"></div>
+            </div>
+            <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" name="description" rows="2" placeholder="Description du quiz"></textarea></div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Score de reussite (%)</label><input type="number" class="form-input" name="passingScore" value="60" min="0" max="100"></div>
+              <div class="form-group"><label class="form-label">Tentatives max</label><input type="number" class="form-input" name="maxAttempts" value="3" min="1"></div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn--primary" id="btn-create-quiz">&#10067; Creer le quiz</button>
+              <button type="reset" class="btn btn--outline">Annuler</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Creation Question -->
+        <section class="teacher-section">
+          <h2 class="teacher-section__title">&#9997; Ajouter une question</h2>
+          <form class="teacher-form" id="create-question-form">
+            <div class="form-row">
+              <div class="form-group" style="flex:2"><label class="form-label">Enonce</label><textarea class="form-textarea" name="text" rows="2" required placeholder="Texte de la question"></textarea></div>
+              <div class="form-group"><label class="form-label">Type</label>
+                <select class="form-select" name="type" id="question-type">
+                  <option value="multiple_choice">QCM</option>
+                  <option value="true_false">Vrai/Faux</option>
+                  <option value="fill_in_blank">A completer</option>
+                  <option value="short_answer">Reponse courte</option>
+                  <option value="ordering">Ordonnancement</option>
+                  <option value="matching">Association</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Niveau</label>
+                <select class="form-select" name="level" required>
+                  <option value="A1">A1</option><option value="A2">A2</option>
+                  <option value="B1">B1</option><option value="B2">B2</option>
+                  <option value="C1">C1</option><option value="C2">C2</option>
+                </select>
+              </div>
+              <div class="form-group"><label class="form-label">Categorie</label>
+                <select class="form-select" name="category">
+                  <option value="grammar">Grammaire</option>
+                  <option value="vocabulary">Vocabulaire</option>
+                  <option value="comprehension">Comprehension</option>
+                  <option value="culture">Culture</option>
+                </select>
+              </div>
+              <div class="form-group"><label class="form-label">Points</label><input type="number" class="form-input" name="points" value="1" min="1"></div>
+            </div>
+            <div class="form-group"><label class="form-label">Explication (visible apres correction)</label><textarea class="form-textarea" name="explanation" rows="2" placeholder="Pourquoi c'est la bonne reponse..."></textarea></div>
+            <!-- Options QCM -->
+            <div class="form-group" id="qcm-options">
+              <label class="form-label">Options (cochez la bonne reponse)</label>
+              <div id="options-list">
+                <div class="option-row"><input type="radio" name="correctOption" value="0" checked><input type="text" class="form-input" name="option0" placeholder="Option A"></div>
+                <div class="option-row"><input type="radio" name="correctOption" value="1"><input type="text" class="form-input" name="option1" placeholder="Option B"></div>
+                <div class="option-row"><input type="radio" name="correctOption" value="2"><input type="text" class="form-input" name="option2" placeholder="Option C"></div>
+                <div class="option-row"><input type="radio" name="correctOption" value="3"><input type="text" class="form-input" name="option3" placeholder="Option D"></div>
+              </div>
+            </div>
+            <!-- Reponses acceptees (fill_blank / short_answer) -->
+            <div class="form-group" id="accepted-answers-group" style="display:none">
+              <label class="form-label">Reponses acceptees (une par ligne)</label>
+              <textarea class="form-textarea" name="acceptedAnswers" rows="2" placeholder="reponse 1&#10;reponse 2"></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn--primary" id="btn-create-question">&#9997; Ajouter la question</button>
+              <button type="reset" class="btn btn--outline">Annuler</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Liste des quiz -->
+        <section class="teacher-section">
+          <h2 class="teacher-section__title">&#10067; Mes quiz</h2>
+          <div id="teacher-quizzes-list">
+            <div class="loading-state"><div class="loading-spinner"></div><p>Chargement des quiz...</p></div>
+          </div>
+        </section>
+
+        <!-- Liste des cours -->
+        <section class="teacher-section">
+          <h2 class="teacher-section__title">&#128218; Mes cours</h2>
+          <div id="teacher-courses-list">
+            <div class="loading-state"><div class="loading-spinner"></div><p>Chargement...</p></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="teacher.js"></script>
+</body>
+</html>

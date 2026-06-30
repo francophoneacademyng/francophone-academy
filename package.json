@@ -1,0 +1,19 @@
+{
+  "name": "francophone-academy",
+  "version": "1.0.0",
+  "description": "Francophone Academy — LMS d'apprentissage du francais (CECRL A1-C2)",
+  "private": true,
+  "scripts": {
+    "seed": "node seedFirestore.js",
+    "seed:emulator": "FIRESTORE_EMULATOR_HOST=localhost:8080 node seedFirestore.js",
+    "functions:install": "cd functions && npm install",
+    "functions:deploy": "firebase deploy --only functions",
+    "hosting:deploy": "firebase deploy --only hosting",
+    "rules:deploy": "firebase deploy --only firestore:rules",
+    "deploy": "firebase deploy",
+    "emulators": "firebase emulators:start"
+  },
+  "devDependencies": {
+    "firebase-admin": "^12.0.0"
+  }
+}

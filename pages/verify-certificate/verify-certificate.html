@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verifier un certificat — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <link rel="stylesheet" href="verify-certificate.css">
+</head>
+<body>
+  <div class="verify-page">
+    <div class="verify-card">
+      <div class="verify-card__logo">&#127466;&#127482;</div>
+      <h1 class="verify-card__title">Verification de certificat</h1>
+      <p class="verify-card__subtitle">Entrez le numero de certificat pour verifier son authenticite.</p>
+
+      <form class="verify-form" id="verify-form">
+        <input type="text" class="form-input" id="verify-input" placeholder="FA-A1-202601-ABC123" required>
+        <button type="submit" class="btn btn--primary">Verifier</button>
+      </form>
+
+      <div id="verify-result"></div>
+
+      <div style="margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--border-light)">
+        <a href="../../index.html" class="btn btn--text btn--small" style="color:var(--text-muted)">&#8592; Francophone Academy</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="verify-certificate.js"></script>
+</body>
+</html>

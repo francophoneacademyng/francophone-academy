@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mes Certificats — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <link rel="stylesheet" href="certificate.css">
+</head>
+<body>
+  <div class="cert-layout">
+    <!-- Sidebar -->
+    <aside class="cert-sidebar" id="cert-sidebar">
+      <div class="cert-sidebar__header">
+        <a href="../dashboard/dashboard.html" class="cert-sidebar__logo">
+          <span aria-hidden="true">&#127466;&#127482;</span>
+          <span class="cert-sidebar__logo-text">Francophone Academy</span>
+        </a>
+      </div>
+      <nav class="cert-sidebar__nav">
+        <ul class="cert-sidebar__menu" role="list">
+          <li><a href="../dashboard/dashboard.html" class="cert-sidebar__link"><span aria-hidden="true">&#128202;</span> <span class="cert-sidebar__label">Tableau de bord</span></a></li>
+          <li><a href="certificate.html" class="cert-sidebar__link cert-sidebar__link--active" aria-current="page"><span aria-hidden="true">&#127942;</span> <span class="cert-sidebar__label">Mes certificats</span></a></li>
+          <li><a href="../courses/courses.html" class="cert-sidebar__link"><span aria-hidden="true">&#128218;</span> <span class="cert-sidebar__label">Cours</span></a></li>
+          <li><a href="../quiz/quiz.html" class="cert-sidebar__link"><span aria-hidden="true">&#10067;</span> <span class="cert-sidebar__label">Quiz</span></a></li>
+          <li><a href="../pricing/pricing.html" class="cert-sidebar__link"><span aria-hidden="true">&#128176;</span> <span class="cert-sidebar__label">Tarifs</span></a></li>
+        </ul>
+      </nav>
+      <div class="cert-sidebar__footer">
+        <button class="cert-sidebar__link cert-sidebar__link--logout" id="btn-logout"><span aria-hidden="true">&#128682;</span> <span class="cert-sidebar__label">Deconnexion</span></button>
+      </div>
+    </aside>
+
+    <main class="cert-main" role="main">
+      <header class="cert-topbar">
+        <button class="btn btn--icon cert-topbar__menu-btn" id="mobile-menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+        <h1 class="cert-topbar__title">&#127942; Mes certificats</h1>
+      </header>
+
+      <div id="cert-container" class="cert-container"></div>
+    </main>
+  </div>
+
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <script type="module" src="certificate.js"></script>
+</body>
+</html>

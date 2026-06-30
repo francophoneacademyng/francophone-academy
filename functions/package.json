@@ -1,0 +1,15 @@
+{
+  "name": "francophone-academy-functions",
+  "version": "1.0.0",
+  "description": "Francophone Academy Cloud Functions — Backend securise",
+  "engines": { "node": "20" },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.0.0",
+    "firebase-functions": "^4.5.0",
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.0"
+  },
+  "private": true
+}

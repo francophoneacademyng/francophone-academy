@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paiement Echoue — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <style>
+    .failed-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #fef2f2 0%, #fef2f2 100%); padding: var(--space-4); }
+    .failed-card { background: white; border-radius: var(--radius-xl); padding: var(--space-10); text-align: center; max-width: 480px; width: 100%; box-shadow: var(--shadow-xl); }
+    .failed-icon { font-size: 4rem; margin-bottom: var(--space-4); display: block; }
+    .failed-title { font-size: 1.5rem; font-weight: 700; color: var(--error); margin-bottom: var(--space-3); }
+    .failed-text { font-size: 1rem; color: var(--text-secondary); margin-bottom: var(--space-6); line-height: 1.6; }
+    .failed-reason { background: var(--error-bg); border: 1px solid var(--error); border-radius: var(--radius); padding: var(--space-4); margin-bottom: var(--space-6); font-size: 0.875rem; color: var(--text-primary); }
+    .failed-actions { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <div class="failed-page">
+    <div class="failed-card">
+      <span class="failed-icon">&#10060;</span>
+      <h1 class="failed-title">Paiement non abouti</h1>
+      <p class="failed-text">Le paiement n'a pas pu etre traite. Votre compte n'a pas ete debite. Vous pouvez reessayer ou choisir un autre mode de paiement.</p>
+
+      <div class="failed-reason" id="fail-reason" style="display:none">
+        <strong>Raison :</strong> <span id="fail-message">—</span>
+      </div>
+
+      <div class="failed-actions">
+        <a href="../pricing/pricing.html" class="btn btn--primary">&#128260; Reessayer</a>
+        <a href="../dashboard/dashboard.html" class="btn btn--outline">&#128202; Tableau de bord</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    const urlParams = new URLSearchParams(window.location.search);
+    const reason = urlParams.get('reason') || urlParams.get('message');
+    if (reason) {
+      document.getElementById('fail-reason').style.display = 'block';
+      document.getElementById('fail-message').textContent = decodeURIComponent(reason);
+    }
+  </script>
+</body>
+</html>

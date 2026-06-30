@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarifs — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <link rel="stylesheet" href="pricing.css">
+</head>
+<body>
+  <div class="pricing-layout">
+    <!-- Sidebar -->
+    <aside class="pricing-sidebar" id="pricing-sidebar">
+      <div class="pricing-sidebar__header">
+        <a href="../dashboard/dashboard.html" class="pricing-sidebar__logo">
+          <span aria-hidden="true">&#127466;&#127482;</span>
+          <span class="pricing-sidebar__logo-text">Francophone Academy</span>
+        </a>
+      </div>
+      <nav class="pricing-sidebar__nav">
+        <ul class="pricing-sidebar__menu" role="list">
+          <li><a href="../dashboard/dashboard.html" class="pricing-sidebar__link"><span aria-hidden="true">&#128202;</span> <span class="pricing-sidebar__label">Tableau de bord</span></a></li>
+          <li><a href="pricing.html" class="pricing-sidebar__link pricing-sidebar__link--active" aria-current="page"><span aria-hidden="true">&#128176;</span> <span class="pricing-sidebar__label">Tarifs</span></a></li>
+          <li><a href="../courses/courses.html" class="pricing-sidebar__link"><span aria-hidden="true">&#128218;</span> <span class="pricing-sidebar__label">Cours</span></a></li>
+          <li><a href="../quiz/quiz.html" class="pricing-sidebar__link"><span aria-hidden="true">&#10067;</span> <span class="pricing-sidebar__label">Quiz</span></a></li>
+          <li><a href="../tutor/tutor.html" class="pricing-sidebar__link"><span aria-hidden="true">&#129302;</span> <span class="pricing-sidebar__label">IA Tutor</span></a></li>
+        </ul>
+      </nav>
+      <div class="pricing-sidebar__footer">
+        <button class="pricing-sidebar__link pricing-sidebar__link--logout" id="btn-logout"><span aria-hidden="true">&#128682;</span> <span class="pricing-sidebar__label">Deconnexion</span></button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="pricing-main" id="pricing-main">
+      <!-- Top bar -->
+      <header class="pricing-topbar">
+        <button class="btn btn--icon pricing-topbar__menu-btn" id="mobile-menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+        <h1 class="pricing-topbar__title">&#128176; Nos Tarifs</h1>
+        <div class="pricing-topbar__user" id="user-menu">
+          <span class="user-menu__avatar" aria-hidden="true">&#128100;</span>
+          <span id="user-name">Utilisateur</span>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <section class="pricing-hero">
+        <h2 class="pricing-hero__title">Choisissez votre plan d'apprentissage</h2>
+        <p class="pricing-hero__subtitle">Des tarifs adaptes a vos objectifs. Commencez gratuitement et evoluez a votre rythme.</p>
+
+        <!-- Toggle monthly/yearly -->
+        <div class="pricing-toggle">
+          <button class="pricing-toggle__btn pricing-toggle__btn--active" data-duration="monthly" id="toggle-monthly">Mensuel</button>
+          <button class="pricing-toggle__btn" data-duration="yearly" id="toggle-yearly">Annuel <span class="pricing-toggle__badge">-20%</span></button>
+        </div>
+      </section>
+
+      <!-- Plans container -->
+      <div id="pricing-container" class="pricing-container">
+        <div class="loading-state" style="padding:var(--space-8)"><div class="loading-spinner"></div><p>Chargement des tarifs...</p></div>
+      </div>
+
+      <!-- Current subscription -->
+      <div id="current-subscription" class="current-sub"></div>
+
+      <!-- Payment history -->
+      <section class="pricing-history" id="pricing-history" style="display:none">
+        <h3 class="pricing-history__title">&#128179; Historique de paiements</h3>
+        <div id="payments-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Overlay mobile -->
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <script type="module" src="pricing.js"></script>
+</body>
+</html>

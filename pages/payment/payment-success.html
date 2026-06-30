@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paiement Reussi — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <style>
+    .success-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); padding: var(--space-4); }
+    .success-card { background: white; border-radius: var(--radius-xl); padding: var(--space-10); text-align: center; max-width: 480px; width: 100%; box-shadow: var(--shadow-xl); }
+    .success-icon { font-size: 4rem; margin-bottom: var(--space-4); display: block; }
+    .success-title { font-size: 1.5rem; font-weight: 700; color: var(--success); margin-bottom: var(--space-3); }
+    .success-text { font-size: 1rem; color: var(--text-secondary); margin-bottom: var(--space-6); line-height: 1.6; }
+    .success-details { background: var(--bg-hover); border-radius: var(--radius); padding: var(--space-4); margin-bottom: var(--space-6); text-align: left; }
+    .success-detail { display: flex; justify-content: space-between; padding: var(--space-2) 0; font-size: 0.875rem; border-bottom: 1px solid var(--border-light); }
+    .success-detail:last-child { border-bottom: none; }
+    .success-detail__label { color: var(--text-secondary); }
+    .success-detail__value { font-weight: 600; color: var(--text-primary); }
+    .success-actions { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <div class="success-page">
+    <div class="success-card">
+      <span class="success-icon">&#9989;</span>
+      <h1 class="success-title">Paiement reussi !</h1>
+      <p class="success-text">Votre abonnement a ete active avec succes. Vous pouvez maintenant acceder a tous vos cours et commencer votre apprentissage.</p>
+
+      <div class="success-details" id="payment-details" style="display:none">
+        <div class="success-detail"><span class="success-detail__label">Reference</span><span class="success-detail__value" id="detail-ref">—</span></div>
+        <div class="success-detail"><span class="success-detail__label">Plan</span><span class="success-detail__value" id="detail-plan">—</span></div>
+        <div class="success-detail"><span class="success-detail__label">Montant</span><span class="success-detail__value" id="detail-amount">—</span></div>
+      </div>
+
+      <div class="success-actions">
+        <a href="../dashboard/dashboard.html" class="btn btn--primary">&#128202; Mon tableau de bord</a>
+        <a href="../courses/courses.html" class="btn btn--outline">&#128218; Parcourir les cours</a>
+        <a href="../pricing/pricing.html" class="btn btn--text">&#8592; Retour aux tarifs</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('reference') || urlParams.get('trxref');
+    const plan = urlParams.get('plan') || '';
+    const amount = urlParams.get('amount') || '';
+
+    if (ref) {
+      document.getElementById('payment-details').style.display = 'block';
+      document.getElementById('detail-ref').textContent = ref;
+      if (plan) document.getElementById('detail-plan').textContent = plan;
+      if (amount) document.getElementById('detail-amount').textContent = amount;
+    }
+  </script>
+</body>
+</html>

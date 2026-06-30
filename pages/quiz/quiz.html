@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <div class="quiz-layout">
+    <!-- Sidebar -->
+    <aside class="quiz-sidebar" id="quiz-sidebar">
+      <div class="quiz-sidebar__header">
+        <a href="../dashboard/dashboard.html" class="quiz-sidebar__logo">
+          <span aria-hidden="true">&#127466;&#127482;</span>
+          <span class="quiz-sidebar__logo-text">Francophone Academy</span>
+        </a>
+      </div>
+      <nav class="quiz-sidebar__nav">
+        <ul class="quiz-sidebar__menu" role="list">
+          <li><a href="../dashboard/dashboard.html" class="quiz-sidebar__link"><span aria-hidden="true">&#128202;</span> <span class="quiz-sidebar__label">Tableau de bord</span></a></li>
+          <li><a href="quiz.html" class="quiz-sidebar__link quiz-sidebar__link--active" aria-current="page"><span aria-hidden="true">&#10067;</span> <span class="quiz-sidebar__label">Quiz & Evaluations</span></a></li>
+          <li><a href="../courses/courses.html" class="quiz-sidebar__link"><span aria-hidden="true">&#128218;</span> <span class="quiz-sidebar__label">Cours</span></a></li>
+          <li><a href="../certificate/certificate.html" class="quiz-sidebar__link"><span aria-hidden="true">&#127942;</span> <span class="quiz-sidebar__label">Certificats</span></a></li>
+          <li><a href="../tutor/tutor.html" class="quiz-sidebar__link"><span aria-hidden="true">&#129302;</span> <span class="quiz-sidebar__label">IA Tutor</span></a></li>
+        </ul>
+      </nav>
+      <div class="quiz-sidebar__footer">
+        <button class="quiz-sidebar__link quiz-sidebar__link--logout" id="btn-logout"><span aria-hidden="true">&#128682;</span> <span class="quiz-sidebar__label">Deconnexion</span></button>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="quiz-main" id="quiz-main" role="main">
+      <!-- Top bar -->
+      <header class="quiz-topbar">
+        <button class="btn btn--icon quiz-topbar__menu-btn" id="mobile-menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+        <h1 class="quiz-topbar__title" id="page-title">Quiz & Evaluations</h1>
+        <div class="quiz-topbar__user" id="user-menu">
+          <span class="user-menu__avatar" aria-hidden="true">&#128100;</span>
+          <span id="user-name">Utilisateur</span>
+        </div>
+      </header>
+
+      <!-- Container dynamique -->
+      <div id="quiz-container" class="quiz-container"></div>
+    </main>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Overlay mobile -->
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <script type="module" src="quiz.js"></script>
+</body>
+</html>

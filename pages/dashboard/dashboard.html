@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tableau de bord Francophone Academy">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/assets/icon-192.png">
+  <title>Tableau de bord — Francophone Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Navigation principale">
+      <div class="sidebar__header">
+        <a href="dashboard.html" class="sidebar__logo">
+          <span aria-hidden="true">&#127466;&#127482;</span>
+          <span class="sidebar__logo-text">Francophone Academy</span>
+        </a>
+        <button class="btn btn--icon sidebar__toggle" id="sidebar-toggle" aria-label="Replier le menu" aria-expanded="true">
+          <span aria-hidden="true">&#9776;</span>
+        </button>
+      </div>
+
+      <nav class="sidebar__nav">
+        <ul class="sidebar__menu" role="list">
+          <li><a href="dashboard.html" class="sidebar__link sidebar__link--active" aria-current="page"><span aria-hidden="true">&#128202;</span> <span class="sidebar__label">Tableau de bord</span></a></li>
+          <li><a href="../courses/courses.html" class="sidebar__link"><span aria-hidden="true">&#128218;</span> <span class="sidebar__label">Cours</span></a></li>
+          <li><a href="../lesson/lesson.html" class="sidebar__link"><span aria-hidden="true">&#127919;</span> <span class="sidebar__label">Mes cours</span></a></li>
+          <li><a href="../quiz/quiz.html" class="sidebar__link"><span aria-hidden="true">&#10067;</span> <span class="sidebar__label">Quiz & Evals</span></a></li>
+          <li><a href="../pricing/pricing.html" class="sidebar__link"><span aria-hidden="true">&#128176;</span> <span class="sidebar__label">Tarifs</span></a></li>
+          <li><a href="../teacher/teacher.html" class="sidebar__link"><span aria-hidden="true">&#128221;</span> <span class="sidebar__label">Enseignant</span></a></li>
+          <li><a href="../tutor/tutor.html" class="sidebar__link"><span aria-hidden="true">&#129302;</span> <span class="sidebar__label">IA Tutor</span></a></li>
+          <li><a href="../certificate/certificate.html" class="sidebar__link"><span aria-hidden="true">&#127942;</span> <span class="sidebar__label">Certificats</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar__footer">
+        <a href="#" class="sidebar__link"><span aria-hidden="true">&#9881;&#65039;</span> <span class="sidebar__label">Parametres</span></a>
+        <button class="sidebar__link sidebar__link--logout" id="btn-logout"><span aria-hidden="true">&#128682;</span> <span class="sidebar__label">Deconnexion</span></button>
+      </div>
+    </aside>
+
+    <!-- Overlay mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+    <!-- Main content -->
+    <main class="dashboard-main" role="main">
+
+      <!-- Top bar -->
+      <header class="topbar">
+        <div class="topbar__left">
+          <button class="btn btn--icon topbar__menu-btn" id="mobile-menu-toggle" aria-label="Ouvrir le menu">
+            <span aria-hidden="true">&#9776;</span>
+          </button>
+          <div class="topbar__search">
+            <span aria-hidden="true">&#128269;</span>
+            <input type="search" class="form-input form-input--search" placeholder="Rechercher..." aria-label="Rechercher" />
+          </div>
+        </div>
+        <div class="topbar__right">
+          <button class="btn btn--icon" id="btn-notifications" aria-label="Notifications">
+            <span aria-hidden="true">&#128276;</span>
+            <span class="notification-badge" id="notif-badge" aria-label="2 notifications non lues">2</span>
+          </button>
+          <div class="user-menu" id="user-menu">
+            <button class="user-menu__trigger" id="user-menu-trigger" aria-expanded="false" aria-haspopup="true">
+              <span class="user-menu__avatar" aria-hidden="true">&#128100;</span>
+              <span class="user-menu__name" id="user-name">Utilisateur</span>
+              <span aria-hidden="true">&#9662;</span>
+            </button>
+            <div class="user-menu__dropdown" id="user-dropdown" hidden>
+              <a href="#" class="user-menu__item">&#128100; Mon profil</a>
+              <a href="#" class="user-menu__item">&#9881;&#65039; Parametres</a>
+              <div class="user-menu__divider"></div>
+              <button class="user-menu__item user-menu__item--danger" id="btn-logout-dropdown">&#128682; Deconnexion</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard content container -->
+      <div id="dashboard-container" class="dashboard-container"></div>
+
+      <!-- Section Mes Certificats -->
+      <section class="dashboard-section" style="margin-top:var(--space-6)">
+        <div class="section-header">
+          <h2 class="section-title">&#127942; Mes certificats</h2>
+          <a href="../certificate/certificate.html" class="btn btn--text">Voir tout &rarr;</a>
+        </div>
+        <div id="my-certificates-section">
+          <div class="loading-state" style="padding:var(--space-6)"><div class="loading-spinner"></div><p>Chargement de vos certificats...</p></div>
+        </div>
+      </section>
+
+      <!-- Section Mon Abonnement -->
+      <section class="dashboard-section" style="margin-top:var(--space-6)">
+        <div class="section-header">
+          <h2 class="section-title">&#128176; Mon abonnement</h2>
+          <a href="../pricing/pricing.html" class="btn btn--text">Gerer &rarr;</a>
+        </div>
+        <div id="my-subscription-section">
+          <div class="loading-state" style="padding:var(--space-6)"><div class="loading-spinner"></div><p>Chargement de votre abonnement...</p></div>
+        </div>
+      </section>
+
+      <!-- Section Mes Evaluations -->
+      <section class="dashboard-section" style="margin-top:var(--space-6)">
+        <div class="section-header">
+          <h2 class="section-title">&#10067; Mes evaluations</h2>
+          <a href="../quiz/quiz.html" class="btn btn--text">Voir tout &rarr;</a>
+        </div>
+        <div id="my-assessments-section">
+          <div class="loading-state" style="padding:var(--space-6)"><div class="loading-spinner"></div><p>Chargement de vos evaluations...</p></div>
+        </div>
+      </section>
+
+      <!-- Section IA Tutor -->
+      <section class="dashboard-section" style="margin-top:var(--space-6)">
+        <div class="section-header">
+          <h2 class="section-title">&#129302; Activite IA Tutor</h2>
+          <a href="../tutor/tutor.html" class="btn btn--text">Ouvrir le tutor &rarr;</a>
+        </div>
+        <div id="ai-tutor-section">
+          <div class="loading-state" style="padding:var(--space-6)"><div class="loading-spinner"></div><p>Chargement de votre activite IA...</p></div>
+        </div>
+      </section>
+
+      <!-- Section Mes Cours -->
+      <section class="dashboard-section" style="margin-top:var(--space-6)">
+        <div class="section-header">
+          <h2 class="section-title">&#128218; Mes cours</h2>
+          <a href="../courses/courses.html" class="btn btn--text">Voir tout &rarr;</a>
+        </div>
+        <div id="my-courses-section">
+          <div class="loading-state" style="padding:var(--space-6)"><div class="loading-spinner"></div><p>Chargement de vos cours...</p></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

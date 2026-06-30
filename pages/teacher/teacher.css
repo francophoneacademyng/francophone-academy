@@ -1,0 +1,61 @@
+/**
+ * teacher.css — Styles du tableau de bord enseignant
+ */
+
+.page-title { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
+
+.teacher-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+.teacher-stat-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.teacher-stat__value { display: block; font-size: 2rem; font-weight: 700; color: var(--primary); }
+.teacher-stat__label { font-size: 0.875rem; color: var(--text-secondary); }
+
+.teacher-section {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+.teacher-section__title { font-size: 1.125rem; font-weight: 700; margin-bottom: var(--space-4); }
+
+.teacher-form .form-actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+/* Liste des cours enseignant */
+.teacher-course-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.teacher-course-item:last-child { border-bottom: none; }
+.teacher-course__info { flex: 1; }
+.teacher-course__title { font-weight: 600; font-size: 0.9375rem; }
+.teacher-course__meta {
+  display: flex;
+  gap: var(--space-3);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-top: var(--space-1);
+}
+.teacher-course__actions { display: flex; gap: var(--space-2); }
+
+@media (max-width: 768px) {
+  .teacher-stats { grid-template-columns: repeat(3, 1fr); }
+  .teacher-course-item { flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+}

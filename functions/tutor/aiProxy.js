@@ -105,7 +105,7 @@ async function tutorProxyHandler(data, context) {
   }
 
   const userId = context.auth.uid;
-  const { message, cefrLevel = 'A1', context = '', provider = AI_PROVIDERS.OPENAI, messageType = 'text' } = data;
+  const { message, cefrLevel = 'A1', context: lessonContext = '', provider = AI_PROVIDERS.OPENAI, messageType = 'text' } = data;
 
   if (!message || typeof message !== 'string') {
     throw new Error('Message requis');
@@ -115,7 +115,7 @@ async function tutorProxyHandler(data, context) {
   const systemPrompt = CECRL_PROMPTS[cefrLevel] || CECRL_PROMPTS.A1;
 
   // Ajouter le contexte pedagogique au prompt
-  const fullSystemPrompt = `${systemPrompt}\n\nContexte de la lecon : ${context || 'Discussion libre'}\n\nType de reponse attendue : ${messageType}.`;
+  const fullSystemPrompt = `${systemPrompt}\n\nContexte de la lecon : ${lessonContext || 'Discussion libre'}\n\nType de reponse attendue : ${messageType}.`;
 
   try {
     let response;
@@ -197,3 +197,6 @@ async function saveTutorMessage(userId, userMessage, aiResponse, cefrLevel) {
 }
 
 module.exports = { tutorProxyHandler, AI_PROVIDERS };
+
+
+

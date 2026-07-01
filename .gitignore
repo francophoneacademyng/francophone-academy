@@ -2,3 +2,11 @@ serviceAccountKey.json
 node_modules/
 .firebase/
 *.log
+audit.json
+# Temporary and cache files
+*.tmp
+*.temp*
+temp-*
+.cache/
+# Environment and secrets
+.env

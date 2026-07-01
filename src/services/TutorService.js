@@ -378,6 +378,36 @@ export class TutorService {
     }
   }
 
+  /**
+   * Sauvegarde un message utilisateur et une reponse IA dans Firestore.
+   * Utilise par AIService apres un appel Cloud Function reussi.
+   */
+  async saveMessage(userId, sessionId, userMessage, aiResponse, context = {}) {
+    try {
+      // Sauvegarder le message utilisateur
+      const userMsg = ChatMessage.createUserMessage(sessionId, userId, userMessage);
+      await this.sessionRepo.saveMessage(userMsg.toFirestore());
+
+      // Extraire la reponse texte de l'objet IA
+      const responseText = typeof aiResponse === 'string'
+        ? aiResponse
+        : (aiResponse?.response || aiResponse?.message || aiResponse?.content || JSON.stringify(aiResponse));
+
+      // Sauvegarder la reponse assistant
+      const assistantMsg = ChatMessage.createAssistantMessage(sessionId, userId, responseText, 'text', {});
+      await this.sessionRepo.saveMessage(assistantMsg.toFirestore());
+
+      // Mettre a jour l'activite de la session
+      const messages = await this.sessionRepo.getMessages(sessionId);
+      await this.sessionRepo.updateSessionActivity(sessionId, messages.length);
+
+      return { message: { ...assistantMsg.toFirestore(), id: 'msg_cf_' + Date.now() }, error: null };
+    } catch (err) {
+      console.error('[TutorService.saveMessage]', err);
+      return { message: null, error: err.message };
+    }
+  }
+
   // ============================================
   // EXERCICES & QUIZ
   // ============================================

@@ -25,6 +25,7 @@ const container = document.getElementById('courses-grid');
 
 // View custom inline pour le catalogue
 const view = {
+  render: () => {}, // No-op — satisfies CourseController.loadCatalog() interface
   renderLoading: (msg) => {
     container.innerHTML = `<div class="loading-state" style="grid-column:1/-1"><div class="loading-spinner"></div><p>${msg}</p></div>`;
   },
@@ -151,6 +152,29 @@ overlay?.addEventListener('click', () => {
 
 // Logout
 document.getElementById('btn-logout')?.addEventListener('click', () => AuthController.logout());
+
+// Search
+let searchTimeout;
+document.getElementById('course-search')?.addEventListener('input', (e) => {
+  clearTimeout(searchTimeout);
+  const term = e.target.value.trim().toLowerCase();
+  searchTimeout = setTimeout(() => {
+    if (!term) {
+      controller.loadCatalog();
+      return;
+    }
+    // Filtrer les cours en cache du controller
+    const all = controller._courses || [];
+    const filtered = all.filter(c =>
+      c.title?.toLowerCase().includes(term) ||
+      c.description?.toLowerCase().includes(term) ||
+      c.shortDescription?.toLowerCase().includes(term) ||
+      c.level?.toLowerCase().includes(term) ||
+      c.category?.toLowerCase().includes(term)
+    );
+    view.renderCourses(filtered);
+  }, 300);
+});
 
 // Charger
 controller.loadCatalog();

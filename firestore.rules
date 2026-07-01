@@ -286,6 +286,27 @@ service cloud.firestore {
     }
 
     // ============================================
+    // COLLECTION : live_classes/{classId}
+    // ============================================
+    match /live_classes/{classId} {
+      // Etudiants: lire les cours publies ou auxquels ils sont inscrits
+      // Professeurs: lire leurs propres cours
+      // Admins: tout
+      allow read: if isAuthenticated();
+      
+      // Seuls les professeurs et admins peuvent creer
+      allow create: if isStaff() && request.resource.data.teacherId == request.auth.uid;
+      
+      // Seul le prof propriétaire ou un admin peut modifier
+      allow update: if isAuthenticated() && (
+        resource.data.teacherId == request.auth.uid || isAdmin()
+      );
+      
+      // Seul un admin peut supprimer
+      allow delete: if isAdmin();
+    }
+
+    // ============================================
     // REGLE PAR DEFAUT — DENY ALL
     // ============================================
     match /{document=**} {

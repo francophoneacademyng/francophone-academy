@@ -34,7 +34,6 @@ export class CourseController {
     try {
       const courses = await aiService.getCourseCatalog();
       this._courses = courses;
-      this.view.render();
       this.view.renderCourses(courses);
     } catch (err) {
       this.view.renderError('Impossible de charger le catalogue.', () => this.loadCatalog());

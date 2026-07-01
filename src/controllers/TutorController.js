@@ -82,7 +82,13 @@ export class TutorController {
       return;
     }
 
-    this.view.addAssistantMessage(result.message);
+    // Normaliser la reponse : CF retourne result.response, local retourne result.message
+    const msgContent = result.message?.content || result.response || result.message || '';
+    const msgObj = typeof result.message === 'object' && result.message
+      ? result.message
+      : { content: msgContent, role: 'assistant', timestamp: new Date().toISOString() };
+
+    this.view.addAssistantMessage(msgObj);
   }
 
   /**

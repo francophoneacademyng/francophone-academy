@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détails du Cours - Francophone Academy</title>
+  <link rel="stylesheet" href="../../src/theme/global.css">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <link rel="stylesheet" href="./live-classes.css">
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <a href="/" class="navbar-brand">FA</a>
+      <div class="navbar-menu" id="navbar-menu">
+        <a href="/" class="nav-item">Accueil</a>
+        <a href="/pages/courses/courses.html" class="nav-item">Cours</a>
+        <a href="/pages/live-classes/live-classes.html" class="nav-item active">Cours en Direct</a>
+        <a href="/pages/dashboard/dashboard.html" class="nav-item">Tableau de Bord</a>
+      </div>
+      <div class="user-menu" id="user-menu">
+        <span id="user-name">Connectez-vous</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="container">
+      <button class="btn btn--secondary" onclick="history.back()" style="margin-bottom: 1.5rem;">
+        ← Retour
+      </button>
+      <div id="detail-container"></div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2024 Francophone Academy. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="./detail.js"></script>
+</body>
+</html>

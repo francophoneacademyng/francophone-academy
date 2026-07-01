@@ -303,7 +303,7 @@ document.getElementById('question-type')?.addEventListener('change', (e) => {
   const qcmGroup = document.getElementById('qcm-options');
   const answersGroup = document.getElementById('accepted-answers-group');
   if (qcmGroup) qcmGroup.style.display = type === 'multiple_choice' ? 'block' : 'none';
-  if (answersGroup) answersGroup.display = (type === 'fill_in_blank' || type === 'short_answer') ? 'block' : 'none';
+  if (answersGroup) answersGroup.style.display = (type === 'fill_in_blank' || type === 'short_answer') ? 'block' : 'none';
 });
 
 // Load

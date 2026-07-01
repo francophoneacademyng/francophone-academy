@@ -188,7 +188,14 @@ document.getElementById('tutor-suggestions').addEventListener('click', (e) => {
     case 'quiz': controller.onGenerateQuiz(); break;
     case 'grammar': controller.onRequestGrammar(''); break;
     case 'vocabulary': inputEl.value = 'Donne-moi du vocabulaire sur '; inputEl.focus(); break;
-    case 'correction': inputEl.value = 'Corrige ma phrase : ""; inputEl.focus(); break;
+    case 'correction': {
+      inputEl.value = 'Corrige ma phrase : ""';
+      inputEl.focus();
+      // Positionner le curseur entre les guillemets
+      const pos = inputEl.value.length - 1;
+      inputEl.setSelectionRange(pos, pos);
+      break;
+    }
   }
 });
 

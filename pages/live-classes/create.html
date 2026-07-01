@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créer un Cours en Direct - Francophone Academy</title>
+  <link rel="stylesheet" href="../../src/theme/global.css">
+  <link rel="stylesheet" href="../../src/theme/ui-components.css">
+  <link rel="stylesheet" href="./live-classes.css">
+  <style>
+    .create-form {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+
+    .form-actions .btn {
+      min-width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <a href="/" class="navbar-brand">FA</a>
+      <div class="navbar-menu" id="navbar-menu">
+        <a href="/" class="nav-item">Accueil</a>
+        <a href="/pages/courses/courses.html" class="nav-item">Cours</a>
+        <a href="/pages/live-classes/live-classes.html" class="nav-item active">Cours en Direct</a>
+        <a href="/pages/dashboard/dashboard.html" class="nav-item">Tableau de Bord</a>
+      </div>
+      <div class="user-menu" id="user-menu">
+        <span id="user-name">Connectez-vous</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="container">
+      <button class="btn btn--secondary" onclick="history.back()" style="margin-bottom: 1.5rem;">
+        ← Retour
+      </button>
+
+      <form class="create-form" id="create-form">
+        <h1 style="margin-top: 0;">Créer un Cours en Direct</h1>
+
+        <div class="form-group">
+          <label for="title">Titre du cours *</label>
+          <input type="text" id="title" name="title" required placeholder="Entrez le titre du cours">
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea id="description" name="description" required placeholder="Décrivez le contenu du cours"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="courseId">Cours *</label>
+            <select id="courseId" name="courseId" required>
+              <option value="">-- Sélectionnez un cours --</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="level">Niveau *</label>
+            <select id="level" name="level" required>
+              <option value="A1">A1</option>
+              <option value="A2">A2</option>
+              <option value="B1">B1</option>
+              <option value="B2">B2</option>
+              <option value="C1">C1</option>
+              <option value="C2">C2</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="startDate">Date et heure de début *</label>
+            <input type="datetime-local" id="startDate" name="startDate" required>
+          </div>
+
+          <div class="form-group">
+            <label for="duration">Durée (minutes) *</label>
+            <input type="number" id="duration" name="duration" min="15" max="480" value="60" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="meetingProvider">Plateforme de réunion *</label>
+            <select id="meetingProvider" name="meetingProvider" required>
+              <option value="zoom">Zoom</option>
+              <option value="google_meet">Google Meet</option>
+              <option value="teams">Microsoft Teams</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="meetingId">ID de réunion</label>
+            <input type="text" id="meetingId" name="meetingId" placeholder="e.g., 123-456-7890">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="meetingUrl">URL de la réunion *</label>
+          <input type="url" id="meetingUrl" name="meetingUrl" required placeholder="https://...">
+        </div>
+
+        <div class="form-group">
+          <label for="meetingPassword">Mot de passe (si nécessaire)</label>
+          <input type="text" id="meetingPassword" name="meetingPassword" placeholder="Optionnel">
+        </div>
+
+        <div class="form-group">
+          <label for="maxParticipants">Nombre maximal de participants</label>
+          <input type="number" id="maxParticipants" name="maxParticipants" min="1" max="500" value="100">
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn--secondary" onclick="history.back()">Annuler</button>
+          <button type="submit" class="btn btn--primary">Créer le cours</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2024 Francophone Academy. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="./create.js"></script>
+</body>
+</html>

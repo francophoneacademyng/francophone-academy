@@ -232,8 +232,19 @@ document.getElementById('btn-next-footer').addEventListener('click', () => contr
 document.getElementById('btn-complete').addEventListener('click', () => controller.onCompleteLesson());
 document.getElementById('btn-complete-footer').addEventListener('click', () => controller.onCompleteLesson());
 
-// Bouton AI Tutor — ouvre le tutor avec le contexte de la lecon courante
+// Bouton AI Tutor (toolbar) — ouvre le tutor avec le contexte de la lecon courante
 document.getElementById('btn-tutor').addEventListener('click', () => {
+  const params = new URLSearchParams({
+    course: tutorContext.courseId,
+    lesson: tutorContext.lessonId,
+    lessonTitle: tutorContext.lessonTitle,
+    level: tutorContext.cefrLevel
+  });
+  window.open(`../tutor/tutor.html?${params.toString()}`, '_blank');
+});
+
+// Bouton flottant AI Tutor
+document.getElementById('btn-tutor-float')?.addEventListener('click', () => {
   const params = new URLSearchParams({
     course: tutorContext.courseId,
     lesson: tutorContext.lessonId,

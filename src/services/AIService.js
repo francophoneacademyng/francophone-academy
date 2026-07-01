@@ -225,12 +225,14 @@ export class AIService {
    */
   async sendTutorMessage(userId, sessionId, message, context) {
     try {
-      const cefrLevel = context?.level || 'A1';
+      const cefrLevel = context?.level || context?.cefrLevel || 'A1';
       const ctx = context?.lessonTitle || context?.courseTitle || '';
       const aiResult = await cfTutorProxy(message, cefrLevel, ctx);
-      // Sauvegarder la reponse localement
-      await this.tutor.saveMessage(userId, sessionId, message, aiResult.response || aiResult, context);
-      return { response: aiResult.response || aiResult, source: 'cloud_function' };
+      const responseText = typeof aiResult === 'string' ? aiResult : (aiResult?.response || aiResult?.message || aiResult?.content || '');
+      // Sauvegarder les messages dans Firestore
+      const saveResult = await this.tutor.saveMessage(userId, sessionId, message, responseText, context);
+      const msgObj = saveResult?.message || { content: responseText, role: 'assistant', timestamp: new Date().toISOString() };
+      return { message: msgObj, response: responseText, source: 'cloud_function', error: null };
     } catch (err) {
       console.warn('[AIService] Cloud Function AI failed, fallback local:', err.message);
       return this.tutor.sendMessage(userId, sessionId, message, context);

@@ -32,6 +32,27 @@ if (user?.displayName) {
 }
 
 // ============================================
+// Welcome banner
+// ============================================
+const hour = new Date().getHours();
+const greeting = hour < 12 ? 'Bonjour' : hour < 18 ? 'Bon apres-midi' : 'Bonsoir';
+const firstName = user?.displayName?.split(' ')[0] || 'Apprenant';
+const welcomeBanner = document.createElement('div');
+welcomeBanner.className = 'dashboard-welcome';
+welcomeBanner.innerHTML = `
+  <div>
+    <div class="dashboard-welcome__title">${greeting}, ${firstName} &#128075;</div>
+    <div class="dashboard-welcome__subtitle">Pret(e) a progresser aujourd'hui ?</div>
+  </div>
+  <div class="dashboard-welcome__actions">
+    <a href="../courses/courses.html" class="btn btn--white">&#128218; Mes cours</a>
+    <a href="../tutor/tutor.html" class="btn btn--ghost">&#129302; Tuteur IA</a>
+  </div>
+`;
+const dashboardContainer = document.querySelector('.dashboard-container');
+if (dashboardContainer) dashboardContainer.insertBefore(welcomeBanner, dashboardContainer.firstChild);
+
+// ============================================
 // Controller + View
 // ============================================
 const controller = new DashboardController();

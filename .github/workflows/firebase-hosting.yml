@@ -1,0 +1,20 @@
+name: Firebase Hosting Deploy (dry-run)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hosting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install
+        run: npm ci
+      - name: Firebase Hosting dry-run
+        env:
+          FIREBASE_CLI_PREVIEWS: hosting
+        run: npx firebase deploy --only hosting --dry-run

@@ -154,7 +154,7 @@ export const PAYSTACK_CONFIG = {
   PUBLIC_KEY: 'pk_test_paystack_public_key', // REMPLACER par votre clé publique Paystack
   CURRENCY: 'XOF',
   CHANNELS: ['card', 'mobile_money'],
-  CALLBACK_URL: window.location.origin + '/pages/payment/payment-success.html'
+  CALLBACK_URL: window.location.origin + '/payment/success'
 };
 
 export { app };

@@ -1,0 +1,107 @@
+.landing-hero {
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.08) 0%, rgba(248, 250, 252, 1) 100%);
+  padding: 4rem 0;
+}
+
+.landing-hero__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+}
+
+.landing-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.features-section,
+.cefr-section,
+.tutor-section,
+.dashboard-section,
+.progress-section,
+.pricing-section,
+.faq-section,
+.testimonials-section {
+  padding: 4rem 0;
+}
+
+.section-divider {
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+  margin: 0;
+}
+
+.feature-card {
+  min-height: 220px;
+}
+
+.tutor-card {
+  min-height: 220px;
+}
+
+.progress-panel {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.progress-panel .card {
+  min-height: 220px;
+}
+
+.stat-card {
+  background: var(--color-primary);
+  color: var(--color-inverse);
+  border: none;
+}
+
+.stat-card__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  opacity: 0.87;
+}
+
+.stat-card__value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 0.75rem;
+}
+
+.pricing-card__footer {
+  margin-top: 1.5rem;
+}
+
+.footer {
+  padding: 3rem 0 2rem;
+}
+
+@media (max-width: 880px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-panel,
+  .features-grid,
+  .pricing-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-hero {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .landing-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

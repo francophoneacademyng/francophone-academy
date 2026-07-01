@@ -2,7 +2,7 @@
   "name": "Francophone Academy",
   "short_name": "FrAcademy",
   "description": "Apprenez le francais avec un tuteur IA adapte au CECRL A1-C2. Quiz, certificats et progression personnalisee.",
-  "start_url": "/pages/login/login.html",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2563eb",
@@ -23,22 +23,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/assets/screenshot-dashboard.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Tableau de bord Francophone Academy"
-    },
-    {
-      "src": "/assets/screenshot-mobile.png",
-      "sizes": "750x1334",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Vue mobile du tableau de bord"
     }
   ],
   "related_applications": [],

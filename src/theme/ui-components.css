@@ -382,6 +382,323 @@ img { max-width: 100%; display: block; }
 }
 .progress-bar--small { height: 4px; }
 
+/* ============================================================
+   APPLICATION SHELL
+   ============================================================ */
+.dashboard-layout,
+.quiz-layout,
+.pricing-layout,
+.cert-layout,
+.tutor-layout,
+.lesson-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background: var(--bg-body);
+}
+
+.tutor-layout {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.dashboard-sidebar,
+.quiz-sidebar,
+.pricing-sidebar,
+.cert-sidebar,
+.tutor-sidebar,
+.lesson-sidebar,
+.sidebar {
+  width: 260px;
+  background: var(--bg-sidebar);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  transition: transform 0.3s ease, width 0.3s ease;
+  overflow: hidden;
+}
+
+.lesson-sidebar {
+  width: 300px;
+}
+
+.dashboard-main,
+.quiz-main,
+.pricing-main,
+.cert-main,
+.tutor-chat-area,
+.lesson-main {
+  flex: 1;
+  min-height: 100vh;
+  margin-left: 260px;
+}
+
+.lesson-main {
+  margin-left: 300px;
+}
+
+.dashboard-sidebar__header,
+.quiz-sidebar__header,
+.pricing-sidebar__header,
+.cert-sidebar__header,
+.tutor-sidebar__header,
+.lesson-sidebar__header,
+.sidebar__header {
+  padding: var(--space-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dashboard-sidebar__logo,
+.quiz-sidebar__logo,
+.pricing-sidebar__logo,
+.cert-sidebar__logo,
+.tutor-sidebar__logo,
+.lesson-sidebar__logo,
+.sidebar__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.dashboard-sidebar__nav,
+.quiz-sidebar__nav,
+.pricing-sidebar__nav,
+.cert-sidebar__nav,
+.tutor-sidebar__nav,
+.lesson-sidebar__nav,
+.sidebar__nav {
+  flex: 1;
+  padding: var(--space-3) 0;
+  overflow-y: auto;
+}
+
+.dashboard-sidebar__nav::-webkit-scrollbar,
+.quiz-sidebar__nav::-webkit-scrollbar,
+.pricing-sidebar__nav::-webkit-scrollbar,
+.cert-sidebar__nav::-webkit-scrollbar,
+.tutor-sidebar__nav::-webkit-scrollbar,
+.lesson-sidebar__nav::-webkit-scrollbar,
+.sidebar__nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dashboard-sidebar__nav::-webkit-scrollbar-thumb,
+.quiz-sidebar__nav::-webkit-scrollbar-thumb,
+.pricing-sidebar__nav::-webkit-scrollbar-thumb,
+.cert-sidebar__nav::-webkit-scrollbar-thumb,
+.tutor-sidebar__nav::-webkit-scrollbar-thumb,
+.lesson-sidebar__nav::-webkit-scrollbar-thumb,
+.sidebar__nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+}
+
+.dashboard-sidebar__menu,
+.quiz-sidebar__menu,
+.pricing-sidebar__menu,
+.cert-sidebar__menu,
+.tutor-sidebar__menu,
+.lesson-sidebar__menu,
+.sidebar__menu {
+  list-style: none;
+  padding: 0 var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.dashboard-sidebar__link,
+.quiz-sidebar__link,
+.pricing-sidebar__link,
+.cert-sidebar__link,
+.tutor-sidebar__link,
+.lesson-sidebar__link,
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all var(--transition);
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+}
+
+.dashboard-sidebar__link:hover,
+.quiz-sidebar__link:hover,
+.pricing-sidebar__link:hover,
+.cert-sidebar__link:hover,
+.tutor-sidebar__link:hover,
+.lesson-sidebar__link:hover,
+.sidebar__link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.dashboard-sidebar__link--active,
+.quiz-sidebar__link--active,
+.pricing-sidebar__link--active,
+.cert-sidebar__link--active,
+.tutor-sidebar__link--active,
+.lesson-sidebar__link--active,
+.sidebar__link--active {
+  background: var(--primary);
+  color: white;
+}
+
+.dashboard-sidebar__link--logout,
+.quiz-sidebar__link--logout,
+.pricing-sidebar__link--logout,
+.cert-sidebar__link--logout,
+.tutor-sidebar__link--logout,
+.lesson-sidebar__link--logout,
+.sidebar__link--logout {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dashboard-sidebar__link--logout:hover,
+.quiz-sidebar__link--logout:hover,
+.pricing-sidebar__link--logout:hover,
+.cert-sidebar__link--logout:hover,
+.tutor-sidebar__link--logout:hover,
+.lesson-sidebar__link--logout:hover,
+.sidebar__link--logout:hover {
+  color: var(--error);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.sidebar-overlay,
+.dashboard-overlay,
+.quiz-overlay,
+.pricing-overlay,
+.cert-overlay,
+.tutor-overlay,
+.lesson-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+.sidebar-overlay--visible,
+.dashboard-overlay--visible,
+.quiz-overlay--visible,
+.pricing-overlay--visible,
+.cert-overlay--visible,
+.tutor-overlay--visible,
+.lesson-overlay--visible {
+  display: block;
+}
+
+.topbar,
+.quiz-topbar,
+.pricing-topbar,
+.cert-topbar,
+.lesson-toolbar,
+.tutor-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-6);
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  min-height: 60px;
+}
+
+.topbar__left,
+.quiz-topbar__left,
+.pricing-topbar__left,
+.cert-topbar__left,
+.lesson-toolbar__left,
+.tutor-chat-header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.topbar__menu-btn,
+.quiz-topbar__menu-btn,
+.pricing-topbar__menu-btn,
+.cert-topbar__menu-btn,
+.lesson-toolbar__menu-btn {
+  display: none;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: var(--space-1);
+}
+
+.page-title,
+.topbar__title,
+.quiz-topbar__title,
+.pricing-topbar__title,
+.cert-topbar__title,
+.lesson-toolbar__title,
+.tutor-chat-header__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .dashboard-sidebar,
+  .quiz-sidebar,
+  .pricing-sidebar,
+  .cert-sidebar,
+  .tutor-sidebar,
+  .lesson-sidebar {
+    transform: translateX(-100%);
+  }
+  .dashboard-sidebar--open,
+  .quiz-sidebar--open,
+  .pricing-sidebar--open,
+  .cert-sidebar--open,
+  .tutor-sidebar--open,
+  .lesson-sidebar--open {
+    transform: translateX(0);
+    z-index: 200;
+  }
+  .dashboard-main,
+  .quiz-main,
+  .pricing-main,
+  .cert-main,
+  .tutor-chat-area,
+  .lesson-main {
+    margin-left: 0;
+  }
+  .topbar__menu-btn,
+  .quiz-topbar__menu-btn,
+  .pricing-topbar__menu-btn,
+  .cert-topbar__menu-btn,
+  .lesson-toolbar__menu-btn {
+    display: inline-flex;
+  }
+}
+
 /* Score circle */
 .score-circle {
   width: 140px;

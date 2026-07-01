@@ -2,26 +2,7 @@
  * lesson.css — Styles du lesson player
  */
 
-.lesson-layout {
-  display: flex;
-  min-height: 100vh;
-}
-
-/* ========== SIDEBAR ========== */
-.lesson-sidebar {
-  width: 300px;
-  background: var(--bg-sidebar);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 100;
-  overflow-y: auto;
-  transition: transform 0.3s ease;
-}
+/* Sidebar chrome and menu */
 .lesson-sidebar::-webkit-scrollbar { width: 4px; }
 .lesson-sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: var(--radius-full); }
 
@@ -112,8 +93,6 @@
 /* ========== MAIN ========== */
 .lesson-main {
   flex: 1;
-  margin-left: 300px;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }

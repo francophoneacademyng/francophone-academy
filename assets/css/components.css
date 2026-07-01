@@ -1,0 +1,125 @@
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.section-header p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.card-text {
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.badge-pill {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.hero-stat__label {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.hero-stat__value {
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.feature-card__icon,
+.tutor-card__icon,
+.testimonial-card__icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--color-primary);
+}
+
+.feature-card__title,
+.tutor-card__title,
+.pricing-card__title {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.feature-card__text,
+.tutor-card__text,
+.pricing-card__text {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.pricing-card__price {
+  margin: 0 0 1.25rem;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.pricing-card__meta {
+  display: inline-flex;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 0.95rem;
+}
+
+.faq-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+}
+
+.faq-item__question {
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+}
+
+.faq-item__answer {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.testimonial-card__body {
+  margin-top: 1rem;
+  color: var(--color-muted);
+}
+
+.testimonial-card__name {
+  font-weight: 700;
+  margin: 1rem 0 0.25rem;
+}
+
+.testimonial-card__role {
+  color: var(--color-muted);
+  margin: 0;
+}

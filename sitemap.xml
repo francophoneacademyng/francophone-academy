@@ -2,57 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://francophone-academy.web.app/pages/login/login.html</loc>
+    <loc>https://francophone-academy.web.app/login</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://francophone-academy.web.app/pages/register/register.html</loc>
+    <loc>https://francophone-academy.web.app/register</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://francophone-academy.web.app/pages/dashboard/dashboard.html</loc>
+    <loc>https://francophone-academy.web.app/dashboard</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://francophone-academy.web.app/pages/courses/courses.html</loc>
+    <loc>https://francophone-academy.web.app/courses</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://francophone-academy.web.app/pages/pricing/pricing.html</loc>
+    <loc>https://francophone-academy.web.app/pricing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://francophone-academy.web.app/pages/certificate/certificate.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://francophone-academy.web.app/pages/verify-certificate/verify-certificate.html</loc>
+    <loc>https://francophone-academy.web.app/certificates</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://francophone-academy.web.app/pages/tutor/tutor.html</loc>
+    <loc>https://francophone-academy.web.app/verify-certificate</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://francophone-academy.web.app/tutor</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://francophone-academy.web.app/pages/quiz/quiz.html</loc>
+    <loc>https://francophone-academy.web.app/teacher</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://francophone-academy.web.app/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>1.0</priority>
   </url>
 
 </urlset>

@@ -16,6 +16,7 @@ import { AssessmentService, assessmentService } from './AssessmentService.js';
 import { PaymentService, paymentService } from './PaymentService.js';
 import { SubscriptionService, subscriptionService } from './SubscriptionService.js';
 import { CertificateService, certificateService } from './CertificateService.js';
+import { AcademicCurriculumService, academicCurriculumService } from './AcademicCurriculumService.js';
 import {
   cfValidatePayment,
   cfGenerateCertificate,
@@ -41,6 +42,7 @@ export class AIService {
     this.payment = paymentService;
     this.subscription = subscriptionService;
     this.certificate = certificateService;
+    this.academicCurriculum = academicCurriculumService;
   }
 
   // ============================================
@@ -209,6 +211,74 @@ export class AIService {
 
   async createLesson(lessonId, data) {
     return this.learning.createLesson(lessonId, data);
+  }
+
+  // ============================================
+  // ACADEMIC CURRICULUM SERVICE (delegation)
+  // ============================================
+
+  async bootstrapAcademicProgram(programId) {
+    return this.academicCurriculum.bootstrapProgram(programId);
+  }
+
+  async getAcademicProgram(programId) {
+    return this.academicCurriculum.getProgram(programId);
+  }
+
+  async getAcademicLevels(programId) {
+    return this.academicCurriculum.getLevels(programId);
+  }
+
+  async getAcademicProgramStructure(programId) {
+    return this.academicCurriculum.getProgramStructure(programId);
+  }
+
+  async getAcademicLevelFramework(levelId) {
+    return this.academicCurriculum.getLevelFramework(levelId);
+  }
+
+  getAcademicTeacherWorkflow(levelId) {
+    return this.academicCurriculum.getTeacherWorkflow(levelId);
+  }
+
+  getAcademicStudentWorkflow(levelId) {
+    return this.academicCurriculum.getStudentWorkflow(levelId);
+  }
+
+  async createAcademicModule(data) {
+    return this.academicCurriculum.createModule(data);
+  }
+
+  async createAcademicUnit(data) {
+    return this.academicCurriculum.createUnit(data);
+  }
+
+  async createAcademicLesson(data) {
+    return this.academicCurriculum.createLesson(data);
+  }
+
+  async createAcademicExercise(data) {
+    return this.academicCurriculum.createExercise(data);
+  }
+
+  async createAcademicQuiz(data) {
+    return this.academicCurriculum.createQuiz(data);
+  }
+
+  async createAcademicAssignment(data) {
+    return this.academicCurriculum.createAssignment(data);
+  }
+
+  async createAcademicLiveClass(data) {
+    return this.academicCurriculum.createLiveClass(data);
+  }
+
+  async createAcademicExam(data) {
+    return this.academicCurriculum.createExam(data);
+  }
+
+  async createAcademicCertificate(data) {
+    return this.academicCurriculum.createCertificate(data);
   }
 
   // ============================================

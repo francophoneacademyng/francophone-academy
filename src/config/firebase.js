@@ -54,6 +54,17 @@ export const COLLECTIONS = {
   COURSES: 'courses',
   LESSONS: 'lessons',
   MODULES: 'modules',
+  ACADEMIC_PROGRAMS: 'academic_programs',
+  ACADEMIC_LEVELS: 'academic_levels',
+  ACADEMIC_MODULES: 'academic_modules',
+  ACADEMIC_UNITS: 'academic_units',
+  ACADEMIC_LESSONS: 'academic_lessons',
+  ACADEMIC_EXERCISES: 'academic_exercises',
+  ACADEMIC_QUIZZES: 'academic_quizzes',
+  ACADEMIC_ASSIGNMENTS: 'academic_assignments',
+  ACADEMIC_LIVE_CLASSES: 'academic_live_classes',
+  ACADEMIC_EXAMS: 'academic_exams',
+  ACADEMIC_CERTIFICATES: 'academic_certificates',
   ENROLLMENTS: 'enrollments',
   QUIZZES: 'quizzes',
   QUESTIONS: 'questions',
@@ -154,7 +165,7 @@ export const PAYSTACK_CONFIG = {
   PUBLIC_KEY: 'pk_test_paystack_public_key', // REMPLACER par votre clé publique Paystack
   CURRENCY: 'XOF',
   CHANNELS: ['card', 'mobile_money'],
-  CALLBACK_URL: window.location.origin + '/payment/success'
+  CALLBACK_URL: window.location.origin + '/pages/payment/payment-success.html'
 };
 
 export { app };
